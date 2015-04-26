@@ -12,5 +12,8 @@ System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
    new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg", m);
    Mat k = GreyScale.greyscale(m);
    new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", k);
+   Histogram h = new Histogram(k ,60, 255);
+
+   
        }
        }
