@@ -4,9 +4,9 @@ import org.opencv.core.Mat;
 import org.opencv.highgui.Highgui;
  
 import org.opencv.highgui.Highgui;
-public class LoadImage extends JFrame {
+public class Megjelenito extends JFrame {
   
-public LoadImage(String imgStr,Mat m)
+public Megjelenito(String imgStr,Mat m)
 {
 Highgui.imwrite(imgStr,m);
 JFrame frame = new JFrame("My GUI");

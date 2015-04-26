@@ -6,7 +6,9 @@ public class Main {
 public static void main(String[] args)
        {
 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-   Mat m=Highgui.imread("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg",Highgui.CV_LOAD_IMAGE_COLOR);
-   new LoadImage("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg",m);
+   Mat m= Beolvaso.beolvas("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg");
+   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg", m);
+   m= Resize.resize(m, 400);
+   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg", m);
        }
        }
