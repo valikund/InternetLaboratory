@@ -24,7 +24,7 @@ public class Histogram {
                 new MatOfInt(size), 
                 ranges);
         
-        
+        //komment
         System.out.println("histogram\n"+histogram.dump());	
         
         
