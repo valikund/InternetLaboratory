@@ -12,8 +12,10 @@ import org.opencv.imgproc.Imgproc;
 
 
 public class Histogram2 {
+	
 	public static int numberOfImages = 2;
-	public Histogram2(Mat image){
+	
+	public static Mat hist(Mat image){
 		numberOfImages ++;
 		
 	    Mat src = new Mat();
@@ -42,6 +44,8 @@ public class Histogram2 {
 	    int hist_h = 600;
 	    long bin_w;
 	    bin_w = Math.round((double) (hist_w / 256));
+	    
+	    //Csak a kirajzoltatáshoz kell inenenetõl a returnig a rész + a nromalizálás az is kell
 
 	    Mat histImage = new Mat(hist_h, hist_w, CvType.CV_8UC1);
 
@@ -60,6 +64,7 @@ public class Histogram2 {
 
 
 	    new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/image"+numberOfImages +".jpeg",histImage);
+	    return b_hist;
 	}
 }
 
