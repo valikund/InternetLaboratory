@@ -7,14 +7,25 @@ public static void main(String[] args)
        {
 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
    Mat m= Beolvaso.beolvas("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg");
-   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg", m);
+   Mat b= Beolvaso.beolvas("C:/Users/valikund-pc/Desktop/OpenCV/img_other.jpg");
+   
+   
+//   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg", m);
    m= Resize.resize(m, 400);
-   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg", m);
-   Mat k = GreyScale.greyscale(m);
-   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", k);
+//   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg", m);
+   m = GreyScale.greyscale(m);
+   
+   b= Resize.resize(b, 400);
+   b = GreyScale.greyscale(b);
+   
+   
+//   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", b);
   
-   new Histogram2(k);
-
+   new Histogram2(b);
+   new Histogram2(m);
+   
+   
+   
    
        }
        }

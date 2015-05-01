@@ -12,7 +12,9 @@ import org.opencv.imgproc.Imgproc;
 
 
 public class Histogram2 {
+	public static int numberOfImages = 2;
 	public Histogram2(Mat image){
+		numberOfImages ++;
 		
 	    Mat src = new Mat();
 	    
@@ -57,7 +59,7 @@ public class Histogram2 {
 	    }
 
 
-	    new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img3.jpg", histImage);
+	    new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/image"+numberOfImages +".jpeg",histImage);
 	}
 }
 
