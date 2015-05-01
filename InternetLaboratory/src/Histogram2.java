@@ -14,15 +14,16 @@ import org.opencv.imgproc.Imgproc;
 public class Histogram2 {
 	public Histogram2(Mat image){
 		
-	    Mat src = new Mat(image.height(), image.width(), CvType.CV_8UC2);
+	    Mat src = new Mat();
 	    
 	    Vector<Mat> bgr_planes = new Vector<>();
 	    if (image.channels()>1){
-	    Imgproc.cvtColor(image, src, Imgproc.COLOR_RGB2GRAY);
+	    	Imgproc.cvtColor(image, src, Imgproc.COLOR_RGB2GRAY);
 		    Core.split(src, bgr_planes);
 	    }
 	    else{
-	    	    	bgr_planes.addElement(src);
+	    	src = image;
+	    	 Core.split(src, bgr_planes);
 	    }
 	    MatOfInt histSize = new MatOfInt(256);
 
