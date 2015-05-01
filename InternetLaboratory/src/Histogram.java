@@ -18,7 +18,7 @@ public class Histogram {
         MatOfFloat ranges=new MatOfFloat(0,range);
         Imgproc.calcHist(
                 matList, 
-                new MatOfInt(3), 
+                new MatOfInt(0), 
                 new Mat(), 
                 histogram , 
                 new MatOfInt(size), 
@@ -27,17 +27,8 @@ public class Histogram {
         //komment
         System.out.println("histogram\n"+histogram.dump());	
         
-        
-        int hist_w = 512; int hist_h = 400;
-    	int bin_w = (int) Math.round((double) hist_w/ (double)size);
-
-    	Mat histImage = new Mat( hist_h, hist_w, CvType.CV_8UC3 , new Scalar( 0,0,0) );
-    	
-    	Core.normalize(histogram, histogram, 0, histImage.rows(), Core.NORM_MINMAX, -1,new Mat() );
-    	
-    	
-
-    	
+            
+    	    	
 
 
 	
