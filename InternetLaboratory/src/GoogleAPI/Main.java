@@ -20,10 +20,13 @@ public class Main {
 		
 		// TODO Auto-generated method stub
 		String google = "http://www.google.com/search?tbm=isch&q=";
+		
+		//a képek variálásához az ajaxos api: http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=Apple+Cake&start=4
 
 	    String search = "ufo";
 	    String charset = "UTF-8";
 	    String userAgent = "Chrome/35.0.1916.114";
+	   
 	    
 	    Document imgTd = Jsoup.connect(google + URLEncoder.encode(search, charset)).userAgent(userAgent).get();
 
