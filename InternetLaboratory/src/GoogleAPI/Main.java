@@ -33,7 +33,7 @@ public class Main {
 
 
 	    Elements imgTds = Jsoup.connect(google + URLEncoder.encode(search, charset)).userAgent(userAgent).get().select(".images_table>tbody>tr>td");
-	    output.print(imgTd.html());
+	    output.print(imgTd.text());
 	    for (Element td : imgTds) {
 	        //Build in Exception handling at this point just in case you get unexpected input.
 	        System.out.println("Title: "+td.html().split("<br>")[2].split("<br>")[0].replaceAll("<[^>]*>", ""));

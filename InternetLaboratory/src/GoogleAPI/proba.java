@@ -26,8 +26,10 @@ public class proba {
 	    String userAgent = "Chrome/35.0.1916.114";
 		 Document imgTd = Jsoup.connect(google + URLEncoder.encode(search, charset)+"&start=4").userAgent(userAgent).get();
 	
-		
-		 output.print(imgTd.html());  
+		    Elements imgTds = Jsoup.connect(google + URLEncoder.encode(search, charset)).userAgent(userAgent).get().select("['responseData']['results']");
+		    //['responseData']['results'][0]['unescapedUrl'] seelctor statement
+		    
+		 output.print(imgTds.text());  
         output.close();
 
 	}
