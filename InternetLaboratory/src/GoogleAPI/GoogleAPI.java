@@ -2,7 +2,6 @@ package GoogleAPI;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -10,21 +9,20 @@ import java.net.URLEncoder;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
-public class proba {
+public class GoogleAPI {
 
-	public static void main(String[] args) throws UnsupportedEncodingException, IOException {
+	public static String[] kereso(int hanyszor_keres, String mit_keresel) throws IOException, Exception {
 		// TODO Auto-generated method stub
 		File input = new File("C:/Users/valikund-pc/Desktop/OpenCV/proba.html");
 		PrintWriter output = new PrintWriter(input);
-		int keresesek_szama =13;
+		int keresesek_szama =hanyszor_keres+1;
 		Integer kereses_pozicioja=0;
 		String[] kimenetiurl = new String[keresesek_szama];
 	
 		String google = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=";
 		
-	    String search = "ufo";
+	    String search = mit_keresel;
 	    String charset = "UTF-8";
 	    String userAgent = "Chrome/35.0.1916.114";
 	    while(kereses_pozicioja < keresesek_szama-1){
@@ -49,8 +47,8 @@ public class proba {
 		
 		
 	    }
+		return kimenetiurl;
        
-    
 
 	}
 

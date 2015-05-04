@@ -12,7 +12,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class Main {
+public class EloProba {
 
 	public static void main(String[] args) throws IOException, IOException {
 		File input = new File("C:/Users/valikund-pc/Desktop/OpenCV/index.html");
