@@ -21,7 +21,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		String google = "http://www.google.com/search?tbm=isch&q=";
 		
-		//a képek variálásához az ajaxos api: http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=Apple+Cake&start=4
+		//a képek variálásához az ajaxos api
+//		String google ="http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=";
 
 	    String search = "ufo";
 	    String charset = "UTF-8";
@@ -44,8 +45,9 @@ public class Main {
 	        //.substring(7).split("&")[0] Quickest way to get to the URL, but definitely not the best out there.
 	        
 	        
-	        output.close();
+	        
 	    }
+	    output.close();
 	}
 
 }
