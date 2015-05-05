@@ -1,4 +1,4 @@
-package GoogleAPI;
+package Proba;
 
 
 
@@ -21,11 +21,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
  
 @SuppressWarnings("deprecation")
 public class GoogleImageFootprinter {
-	 public static String footprint(String fileHelye){
+	 public static void main(String[] args ){
 		    try {
 		      HttpClient client = new DefaultHttpClient();
 		      String url="https://www.google.com/searchbyimage/upload";
-		      String imageFile= fileHelye;
+		      String imageFile= "C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg";
 		      HttpPost post = new HttpPost(url);
 
 		      MultipartEntity entity = new MultipartEntity();
@@ -45,7 +45,7 @@ public class GoogleImageFootprinter {
 		      while ((line = rd.readLine()) != null) {
 		        if (line.indexOf("HREF")>0)
 		      System.out.println(line.substring(9));
-		        return line.substring(9);
+		      
 		      }
 
 		    }catch (ClientProtocolException cpx){
@@ -53,7 +53,7 @@ public class GoogleImageFootprinter {
 		    }catch (IOException ioex){
 		      ioex.printStackTrace();
 		    }
-			return null;
+		
 			
 		 }
 	

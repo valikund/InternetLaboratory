@@ -1,3 +1,4 @@
+package Proba;
 import java.util.LinkedList;
 
 import org.opencv.core.Core;
