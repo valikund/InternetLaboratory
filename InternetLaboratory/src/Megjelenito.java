@@ -21,7 +21,7 @@ frame.setSize(image.getIconWidth()+10,image.getIconHeight()+35);
 // Draw the Image data into the BufferedImage
 JLabel label1 = new JLabel(" ", image, JLabel.CENTER);
 frame.getContentPane().add(label1);
- 
+
 frame.validate();
 frame.setVisible(true);}
  

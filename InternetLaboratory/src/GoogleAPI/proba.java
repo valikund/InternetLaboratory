@@ -18,7 +18,7 @@ public class proba {
 		// TODO Auto-generated method stub
 		File input = new File("C:/Users/valikund-pc/Desktop/OpenCV/proba.html");
 		PrintWriter output = new PrintWriter(input);
-		int keresesek_szama =13;
+		int keresesek_szama =130;
 		Integer kereses_pozicioja=0;
 		String[] kimenetiurl = new String[keresesek_szama];
 	
