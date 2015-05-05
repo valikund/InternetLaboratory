@@ -1,4 +1,4 @@
-package GoogleAPI;
+package Proba;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class EloProba {
 		File input = new File("C:/Users/valikund-pc/Desktop/OpenCV/index.html");
 		PrintWriter output = new PrintWriter(input);
 		
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
 		String google = "http://www.google.com/search?tbm=isch&q=";
 		
 		//a képek variálásához az ajaxos api
