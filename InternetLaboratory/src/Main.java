@@ -12,10 +12,9 @@ public class Main {
  
 public static void main(String[] args) throws IOException
        {
-System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-Mat m = Beolvaso.beolvaso_urlrol("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60x3YS99bQAxElG7WCKn7_Pu3lcJ6lj6FG_CSZsWDLyzvzKoZQnNQKA");
-   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", m);
-   
+	Mat a = Beolvaso.beolvaso_fajlbol("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg");
+	Mat b = Beolvaso.beolvaso_fajlbol("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg");
 
+	new Megjelenito("temp.jpg", ImageTiling.beilleszto(a, b, 300, 400));
        }
        }
