@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Vector;
 
 import org.opencv.core.*;
 import org.opencv.highgui.*;
@@ -12,34 +13,9 @@ public class Main {
 public static void main(String[] args) throws IOException
        {
 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-   Mat m= Beolvaso.beolvas("C:/Users/valikund-pc/Desktop/OpenCV/Histogram_Comparison_Source_0.jpg");
-   Mat b= Beolvaso.beolvas("C:/Users/valikund-pc/Desktop/OpenCV/Histogram_Comparison_Source_1.jpg");
+Mat m = Beolvaso.beolvaso_urlrol("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60x3YS99bQAxElG7WCKn7_Pu3lcJ6lj6FG_CSZsWDLyzvzKoZQnNQKA");
+   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", m);
    
-   
-//   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg", m);
-   m= Resize.resize(m, 400);
-//   new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg", m);
-   m = GreyScale.greyscale(m);
-   
-   b= Resize.resize(b, 400);
-   b = GreyScale.greyscale(b);
-   
-   
-//      new Megjelenito("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg", b)
- 
-//   	Mat a = Histogram2.hist(b);
-//   	Mat c = Histogram2.hist(m);
-   
-//   	double[] eredmeny= CompareHist.compHist(a,c, new int[]{0,1,2,3});
-//   	for(int i=0; i<eredmeny.length; i++)
-//   	System.out.println(eredmeny[i]);
-   	
-   String url =GoogleImageFootprinter.footprint("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg");
-   
-   	GoogleReverseImageSearch.keres(url);
- 
-   
-   
-   
+
        }
        }
