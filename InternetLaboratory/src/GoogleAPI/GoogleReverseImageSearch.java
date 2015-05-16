@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 
+import javax.imageio.ImageIO;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -17,14 +19,18 @@ public class GoogleReverseImageSearch {
 		String[] kimenetiurl = new String[15];
 		int kereses_pozicioja =0;
 		
-		String userAgent = "Chrome/35.0.1916.114";
-		Document imgTd = Jsoup.connect(url).userAgent(userAgent).get();
-		String szoveg = imgTd.text();
+		
+		String userAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36";
+		Document imgTd = Jsoup.connect(url).userAgent(userAgent).referrer("http://www.yahoo.com").timeout(12000) 
+		           .followRedirects(true).get();
+		String szoveg = imgTd.html();
+		
+		
 		
 		while(szoveg.contains("\"ou\":") == true){
 			int	 szoveg1 = szoveg.indexOf("\"ou\":");
 			String	resz =szoveg.substring(szoveg1);
-			resz = resz.substring(5);
+			resz = resz.substring(6);
 			szoveg1 = resz.indexOf("\",");
 			kimenetiurl[kereses_pozicioja]  = resz.substring(0, szoveg1) ;
 			szoveg = resz.substring(szoveg1);

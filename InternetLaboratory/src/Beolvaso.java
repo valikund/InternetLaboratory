@@ -2,8 +2,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import javax.imageio.ImageIO;
 
@@ -27,14 +29,32 @@ public class Beolvaso {
 		File file = new File("temp"+hanyadik+".jpeg");
 		file_path = file.getAbsolutePath();
 		hanyadik++;
-		URL url_kep =new URL(url);
+		
+		URL url_ki =new URL(url);
+         HttpURLConnection httpcon = (HttpURLConnection) url_ki.openConnection();
+         httpcon.addRequestProperty("User-Agent", "Chrome/42.0.2311.135");
+		
+         BufferedImage originalImage = ImageIO.read(httpcon.getInputStream());
+         BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
 
-		ImageIO.write(ImageIO.read(url_kep), "jpeg", file);
+             for (int x = 0; x < originalImage.getWidth(); x++) {
+                 for (int y = 0; y < originalImage.getHeight(); y++) {
+                     newImage.setRGB(x, y, originalImage.getRGB(x, y));
+                 }
+             }
+		
+         
+         
+         
+         
+		ImageIO.write(newImage, "jpeg", file);
 		
 		Mat uj = Highgui.imread("temp.jpeg" ,Highgui.CV_LOAD_IMAGE_COLOR);	
-//		new Megjelenito("tempa"+hanyadik+".jpeg", uj);
 		
+		
+				
 		return uj;
+		
 		
 	}
 

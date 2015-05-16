@@ -24,9 +24,10 @@ public class GoogleAPI {
 		
 	    String search = mit_keresel;
 	    String charset = "UTF-8";
-	    String userAgent = "Chrome/35.0.1916.114";
+	    String userAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36";
 	    while(kereses_pozicioja < keresesek_szama-1){
-		 Document imgTd = Jsoup.connect(google + URLEncoder.encode(search, charset)+"&start="+kereses_pozicioja).userAgent(userAgent).get();
+		 Document imgTd = Jsoup.connect(google + URLEncoder.encode(search, charset)+"&start="+kereses_pozicioja).userAgent(userAgent).referrer("http://www.yahoo.com").timeout(12000) 
+		           .followRedirects(true).get();
 			    
 		 output.print(imgTd.text()); 
 		 String szoveg = imgTd.text();

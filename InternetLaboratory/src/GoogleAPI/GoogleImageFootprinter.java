@@ -8,8 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
  
+
 import javax.swing.JOptionPane;
  
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -22,38 +24,41 @@ import org.apache.http.impl.client.DefaultHttpClient;
 @SuppressWarnings("deprecation")
 public class GoogleImageFootprinter {
 	 public static String footprint(String fileHelye){
-		    try {
-		      HttpClient client = new DefaultHttpClient();
-		      String url="https://www.google.com/searchbyimage/upload";
-		      String imageFile= fileHelye;
-		      HttpPost post = new HttpPost(url);
+		 String kimeneti_url = null; 
+		 try {
+			      HttpClient client = new DefaultHttpClient();
+			      String url="https://www.google.com/searchbyimage/upload";
+			      String imageFile= fileHelye;
+			      HttpPost post = new HttpPost(url);
 
-		      MultipartEntity entity = new MultipartEntity();
-		      entity.addPart("encoded_image", new FileBody(new File(imageFile)));
-		      entity.addPart("image_url",new StringBody(""));
-		      entity.addPart("image_content",new StringBody(""));
-		      entity.addPart("filename",new StringBody(""));
-		      entity.addPart("h1",new StringBody("en"));
-		      entity.addPart("bih",new StringBody("179"));
-		      entity.addPart("biw",new StringBody("1600"));
+			      MultipartEntity entity = new MultipartEntity();
+			      entity.addPart("encoded_image", new FileBody(new File(imageFile)));
+			      entity.addPart("image_url",new StringBody(""));
+			      entity.addPart("image_content",new StringBody(""));
+			      entity.addPart("filename",new StringBody(""));
+			      entity.addPart("h1",new StringBody("en"));
+			      entity.addPart("bih",new StringBody("179"));
+			      entity.addPart("biw",new StringBody("1600"));
 
-		      post.setEntity(entity);
-		      HttpResponse response = client.execute(post);
-		      BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));         
-
-		      String line = "";
-		      while ((line = rd.readLine()) != null) {
-		        if (line.indexOf("HREF")>0)
-		      System.out.println(line.substring(9));
-		        return line.substring(9);
-		      }
-
-		    }catch (ClientProtocolException cpx){
-		      cpx.printStackTrace();
-		    }catch (IOException ioex){
-		      ioex.printStackTrace();
-		    }
-			return null;
+			      post.setEntity(entity);
+			      HttpResponse response = client.execute(post);
+			      BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));         
+			     
+			      String line = "";
+			      while ((line = rd.readLine()) != null) {
+			        if (line.indexOf("HREF")>0)
+			      kimeneti_url = line.substring(9);
+			      System.out.println(line.substring(9));
+			      
+			      }
+			      
+			    }catch (ClientProtocolException cpx){
+			      cpx.printStackTrace();
+			    }catch (IOException ioex){
+			      ioex.printStackTrace();
+			    }
+		 return kimeneti_url;
+			
 			
 		 }
 	
