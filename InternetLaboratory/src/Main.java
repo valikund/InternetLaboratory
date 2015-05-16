@@ -12,7 +12,7 @@ public class Main {
  
 public static void main(String[] args) throws Exception
        {
-		new Collage("macska", 1000, 1000, 36);
+		new Collage("analog circuit", 1000, 1000, 16);
 //		String url = GoogleImageFootprinter.footprint("C:/Users/valikund-pc/Desktop/OpenCV/img1.jpg");
 //		System.out.println(url);
 //		GoogleReverseImageSearch.keres(url);

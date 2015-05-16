@@ -1,6 +1,7 @@
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -34,6 +35,8 @@ public class Beolvaso {
          HttpURLConnection httpcon = (HttpURLConnection) url_ki.openConnection();
          httpcon.addRequestProperty("User-Agent", "Chrome/42.0.2311.135");
 		
+         
+         try{
          BufferedImage originalImage = ImageIO.read(httpcon.getInputStream());
          BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
 
@@ -42,12 +45,17 @@ public class Beolvaso {
                      newImage.setRGB(x, y, originalImage.getRGB(x, y));
                  }
              }
+             ImageIO.write(newImage, "jpeg", file);
+         }
+         catch (NullPointerException e) {
+        	 Mat uj = Highgui.imread("temp1.jpeg" ,Highgui.CV_LOAD_IMAGE_COLOR);
+        	 return uj;
+        	    }
+         catch(FileNotFoundException b){
+        	 Mat uj = Highgui.imread("temp1.jpeg" ,Highgui.CV_LOAD_IMAGE_COLOR);
+        	 return uj;
+         }
 		
-         
-         
-         
-         
-		ImageIO.write(newImage, "jpeg", file);
 		
 		Mat uj = Highgui.imread("temp.jpeg" ,Highgui.CV_LOAD_IMAGE_COLOR);	
 		
