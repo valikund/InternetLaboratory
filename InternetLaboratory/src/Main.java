@@ -10,11 +10,14 @@ import GoogleAPI.GoogleReverseImageSearch;
  
 public class Main {
  
-public static void main(String[] args) throws IOException
+public static void main(String[] args) throws Exception
        {
-	Mat a = Beolvaso.beolvaso_fajlbol("C:/Users/valikund-pc/Desktop/OpenCV/img2.jpg");
-	Mat b = Beolvaso.beolvaso_fajlbol("C:/Users/valikund-pc/Desktop/OpenCV/img.jpg");
+		new Collage("kutyuli", 1000, 1000, 16);
+	
+//	
+//	Mat a = Beolvaso.beolvaso_fajlbol("temp3.jpeg");
+//	a = Resize.resize(a, 200, 200);
+//		new Megjelenito("kep.jpg",a);
+       }
 
-	new Megjelenito("temp.jpg", ImageTiling.beilleszto(a, b, 300, 400));
-       }
-       }
+}

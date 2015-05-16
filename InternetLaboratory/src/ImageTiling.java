@@ -27,13 +27,15 @@ public class ImageTiling {
 	public static Mat beilleszto(Mat amit_illesztunk, Mat amibe_illesztunk, int sor, int oszlop) throws IOException{
 		
 		
+		Mat dst = amibe_illesztunk;
+	 	Mat src = amit_illesztunk;
 		
-	 	Mat bSubmat = amibe_illesztunk.submat(sor, amit_illesztunk.rows()+sor, oszlop, amit_illesztunk.cols()+oszlop);    	
-    	amit_illesztunk.copyTo(bSubmat);
+		Mat bSubmat = dst.submat(sor, amit_illesztunk.rows()+sor, oszlop, amit_illesztunk.cols()+oszlop);    	
+    	
+	 	src.copyTo(bSubmat);
 		
-		new Megjelenito("temp.jpg",amibe_illesztunk);
 		
-		return amibe_illesztunk;
+		return dst;
 
 	}
 }

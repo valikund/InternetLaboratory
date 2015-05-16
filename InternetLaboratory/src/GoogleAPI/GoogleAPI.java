@@ -34,7 +34,7 @@ public class GoogleAPI {
 	        
 		 
 		
-		while(szoveg.contains("unescapedUrl\":") == true){
+		while(szoveg.contains("unescapedUrl\":") == true && kereses_pozicioja < keresesek_szama-1){
 		int	 szoveg1 = szoveg.indexOf("unescapedUrl\":");
 		String	resz =szoveg.substring(szoveg1);
 		resz = resz.substring(15);
